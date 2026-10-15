@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="author" content="emje"><meta name="theme-color" content="#0a3d62">
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
+<title>Ujian Digital SMP N 1 Mekarjaya</title>
+<style>
+:root{--navy:#0a3d62;--cy:#1aa3dc;--gold:#f2b705;--red:#d62828;--bg:#f4f9fc;--tx:#10222f}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;min-height:100%;font-family:system-ui,Segoe UI,Roboto,sans-serif;color:var(--tx);background:var(--bg);user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+input,textarea{user-select:text;-webkit-user-select:text}
+.batik{background-color:var(--navy);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cg fill='none' stroke='%23f2b705' stroke-opacity='.35' stroke-width='1.5'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Ccircle cx='36' cy='12' r='9'/%3E%3Ccircle cx='12' cy='36' r='9'/%3E%3Ccircle cx='36' cy='36' r='9'/%3E%3Ccircle cx='24' cy='24' r='9'/%3E%3C/g%3E%3Ccircle cx='24' cy='24' r='2' fill='%23f2b705' fill-opacity='.5'/%3E%3C/svg%3E")}
+header{display:flex;align-items:center;gap:10px;padding:8px 14px;color:#fff;border-bottom:4px solid var(--gold);position:sticky;top:0;z-index:5}
+header img{height:46px}header h1{font-size:15px;margin:0;line-height:1.2}header small{opacity:.85}
+#timer{margin-left:auto;font:700 20px ui-monospace,monospace;background:var(--red);padding:4px 12px;border-radius:20px}
+#timer.low{animation:b 1s infinite}@keyframes b{50%{opacity:.4}}
+main{max-width:980px;margin:0 auto;padding:14px}
+.card{background:#fff;border-radius:16px;padding:18px;box-shadow:0 4px 18px #0a3d6222;border-top:5px solid var(--gold)}
+.hero{text-align:center;margin:10px 0 16px}.hero img{height:120px;filter:drop-shadow(0 4px 6px #0006)}
+.hero h2{margin:8px 0 2px;color:var(--navy)}.hero p{margin:0;color:#456}
+.sky{height:70px;background:linear-gradient(#bfe8fa,#fff);border-radius:12px;position:relative;overflow:hidden;margin-bottom:12px}
+.sky svg{position:absolute;bottom:0;width:100%;height:100%}
+label{display:block;font-weight:600;margin:10px 0 4px;font-size:14px}
+input,select,textarea{width:100%;padding:12px;border:2px solid #cfe3ee;border-radius:10px;font-size:16px;font-family:inherit}
+input:focus,textarea:focus{outline:none;border-color:var(--cy)}
+.btn{background:var(--cy);color:#fff;border:0;padding:12px 20px;border-radius:12px;font-weight:700;font-size:16px;cursor:pointer;box-shadow:0 3px 0 #0b7fae}
+.btn:active{transform:translateY(2px);box-shadow:none}.btn.r{background:var(--red);box-shadow:0 3px 0 #9a1a1a}.btn.g{background:var(--gold);color:#222;box-shadow:0 3px 0 #b88a00}.btn.n{background:var(--navy);box-shadow:0 3px 0 #06263d}
+.btn:disabled{opacity:.4}
+.grid{display:grid;grid-template-columns:1fr 270px;gap:14px}@media(max-width:760px){.grid{grid-template-columns:1fr}}
+.q{font-size:19px;line-height:1.55;white-space:pre-wrap;margin:6px 0 14px}
+.opt{display:flex;gap:12px;align-items:center;width:100%;text-align:left;background:#fff;border:2px solid #cfe3ee;border-radius:12px;padding:12px;margin:8px 0;font-size:17px;cursor:pointer;transition:.15s}
+.opt b{background:var(--navy);color:#fff;border-radius:50%;min-width:34px;height:34px;display:grid;place-items:center}
+.opt:hover{border-color:var(--cy);transform:translateX(4px)}.opt.on{background:#e3f6ff;border-color:var(--cy)}.opt.on b{background:var(--gold);color:#222}
+.nav{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.nav button{padding:9px 0;border-radius:8px;border:2px solid #cfe3ee;background:#fff;font-weight:700;cursor:pointer}
+.nav .a{background:var(--cy);color:#fff;border-color:var(--cy)}.nav .rg{background:var(--gold);border-color:var(--gold)}.nav .c{outline:3px solid var(--navy)}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.row .sp{flex:1}
+.ov{position:fixed;inset:0;background:#06263dee;color:#fff;display:none;place-items:center;text-align:center;padding:24px;z-index:99}
+.ov.show{display:grid}.ov h2{color:var(--gold)}
+#wm{position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.07}
+body.hid #exam{filter:blur(18px)}
+footer{text-align:center;padding:18px;font-size:13px;color:#456}footer b{color:var(--navy);font-family:Georgia,serif;font-style:italic}
+table{width:100%;border-collapse:collapse;font-size:14px}td,th{border-bottom:1px solid #dde;padding:6px;text-align:left}
+.hide{display:none!important}textarea{height:180px;font-family:ui-monospace,monospace;font-size:13px}
+</style></head><body>
+<div id="wm"></div>
+<div class="ov" id="ov"><div><h2 id="ovt">Peringatan</h2><p id="ovm"></p><button class="btn g" id="ovb">Kembali ke Ujian</button></div></div>
+
+<section id="login"><header class="batik"><img src="logo.png" alt="logo"><div><h1>SMP N 1 MEKARJAYA</h1><small>Kab. Pandeglang · Banten</small></div></header>
+<main><div class="sky"><svg viewBox="0 0 400 70" preserveAspectRatio="none"><path d="M0 70 L60 35 L90 50 L150 15 L200 45 L250 25 L320 55 L360 38 L400 60 L400 70Z" fill="#1aa3dc" opacity=".35"/><path d="M0 70 L80 50 L140 62 L220 40 L300 62 L400 48 L400 70Z" fill="#0a3d62" opacity=".5"/></svg></div>
+<div class="card"><div class="hero"><img src="logo.png" alt="Logo SMP N 1 Mekarjaya"><h2>Sampurasun, Sadérék!</h2><p>Ujian Digital Berbasis Komputer · Jujur adalah Kehormatan 🏮</p></div>
+<label>Nama Lengkap</label><input id="nm" autocomplete="off"><label>NIS / NISN</label><input id="ni" inputmode="numeric" autocomplete="off"><label>Kelas</label><input id="kl" placeholder="contoh: 8A" autocomplete="off"><label>Token Ujian</label><input id="tk" autocomplete="off" style="text-transform:uppercase">
+<div class="row"><button class="btn" id="go" style="flex:1">Mulai Ujian ▶</button></div><p id="err" style="color:var(--red);font-weight:600"></p>
+<p style="font-size:13px;color:#456">Selama ujian: layar penuh wajib, dilarang pindah aplikasi/tab, salin-tempel, dan tangkapan layar. Pelanggaran dicatat dan melebihi batas akan mengunci ujian otomatis.</p></div></main></section>
+
+<section id="exam" class="hide"><header class="batik"><img src="logo.png" alt=""><div><h1 id="who"></h1><small id="prog"></small></div><div id="timer">00:00</div></header>
+<main><div class="grid"><div class="card"><div id="qn" style="color:var(--cy);font-weight:700"></div><div class="q" id="qt"></div><div id="ops"></div>
+<div class="row"><button class="btn n" id="pv">◀ Sebelumnya</button><button class="btn g" id="rg">⚑ Ragu-ragu</button><span class="sp"></span><button class="btn" id="nx">Selanjutnya ▶</button></div></div>
+<div class="card"><b>Navigasi Soal</b><div class="nav" id="nav" style="margin-top:8px"></div><p style="font-size:12px">🟦 terjawab · 🟨 ragu · ⬜ kosong</p><button class="btn r" id="fin" style="width:100%">Selesai &amp; Kirim</button></div></div></main></section>
+
+<section id="done" class="hide"><header class="batik"><img src="logo.png" alt=""><div><h1>SMP N 1 MEKARJAYA</h1></div></header><main><div class="card hero"><img src="logo.png" alt=""><h2>Hatur Nuhun! 🙏</h2><p id="dm"></p><p>Jawaban Sadérék sudah tersimpan. Silakan serahkan perangkat ke pengawas.</p><button class="btn n" onclick="location.reload()">Kembali ke Beranda</button></div></main></section>
+
+<section id="adm" class="hide"><header class="batik"><img src="logo.png" alt=""><div><h1>Panel Guru</h1></div></header><main><div class="card">
+<label>Token Ujian</label><input id="a1"><label>Durasi (menit)</label><input id="a2" type="number"><label>Batas Pelanggaran (kunci otomatis)</label><input id="a3" type="number"><label>PIN Guru Baru (kosongkan jika tetap)</label><input id="a4">
+<label>Bank Soal (JSON: [{"q":"soal","o":["A","B","C","D"],"a":0}] — a = indeks jawaban benar)</label><textarea id="a5"></textarea>
+<div class="row"><button class="btn" id="asv">Simpan</button><button class="btn g" id="acsv">Unduh Hasil (CSV)</button><button class="btn r" id="aclr">Hapus Hasil</button><button class="btn n" onclick="location.reload()">Tutup</button></div>
+<h3>Hasil Siswa</h3><div style="overflow:auto"><table id="at"></table></div></div></main></section>
+
+<footer>© SMP N 1 Mekarjaya · <b>designed by emje</b></footer>
+
+<script>
+'use strict';
+console.log('%cdesigned by emje','color:#f2b705;font:bold 16px Georgia');
+const $=s=>document.querySelector(s),LS={g:(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}},s:(k,v)=>localStorage.setItem(k,JSON.stringify(v))};
+const SAMPLE=[
+{q:"Hasil dari (-12) + 8 × (-3) adalah ...",o:["-36","-12","12","36"],a:0},
+{q:"Bentuk sederhana dari 3(2x − 4) + 5x adalah ...",o:["11x − 12","11x − 4","6x − 12","8x − 12"],a:0},
+{q:"Sebuah persegi panjang berukuran 12 cm × 5 cm. Panjang diagonalnya adalah ... cm",o:["13","15","17","10"],a:0},
+{q:"Nilai x dari 2x + 7 = 19 adalah ...",o:["6","5","13","12"],a:0},
+{q:"Pak Asep menanam 4 baris pohon melinjo di Menes, tiap baris 15 pohon. Jika 12 pohon mati, sisa pohon hidup adalah ...",o:["48","60","72","27"],a:0},
+{q:"Median dari data 4, 7, 5, 9, 6, 8, 10 adalah ...",o:["7","6","8","7,5"],a:0}];
+let cfg=LS.g('cfg',{token:'PANDEGLANG',min:60,pin:'1234',maxV:3,bank:SAMPLE}),st=LS.g('ses',null),tm=null,lastV=0,lock=false;
+const save=()=>LS.s('ses',st);
+function rng(a){return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function hash(s){let h=2166136261;for(const c of s){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0}
+function shuf(n,r){const a=[...Array(n).keys()];for(let i=n-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function show(id){['login','exam','done','adm'].forEach(x=>$('#'+x).classList.toggle('hide',x!==id))}
+function el(t,c,x){const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+
+$('#go').onclick=()=>{
+ const nama=$('#nm').value.trim(),nis=$('#ni').value.trim(),kls=$('#kl').value.trim(),tk=$('#tk').value.trim().toUpperCase();
+ if(tk==='GURU'+cfg.pin){return openAdmin()}
+ if(!nama||!nis||!kls)return $('#err').textContent='Lengkapi semua data.';
+ if(tk!==String(cfg.token).toUpperCase())return $('#err').textContent='Token salah.';
+ if(LS.g('res',[]).some(r=>r.nis===nis))return $('#err').textContent='NIS ini sudah mengerjakan ujian.';
+ if(!st||st.nis!==nis||st.done){const r=rng(hash(nis+nama+tk)),n=cfg.bank.length;
+  st={nama,nis,kls,order:shuf(n,r),perm:cfg.bank.map(q=>shuf(q.o.length,r)),ans:{},rg:{},cur:0,end:Date.now()+cfg.min*60000,viol:[],done:false};save()}
+ startExam()};
+
+function startExam(){show('exam');$('#who').textContent=st.nama+' · '+st.kls;
+ const w=encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' width='260' height='140'><text x='10' y='80' transform='rotate(-25 130 70)' font-size='16' font-family='sans-serif' fill='black'>${esc(st.nama)} · ${esc(st.nis)}</text></svg>`);
+ $('#wm').style.background=`url("data:image/svg+xml,${w}")`;
+ try{document.documentElement.requestFullscreen?.({navigationUI:'hide'})}catch{}
+ lock=false;st.w0=innerWidth;draw();clearInterval(tm);tm=setInterval(tick,1000);tick()}
+const esc=s=>s.replace(/[&<>'"]/g,c=>'&#'+c.charCodeAt(0)+';');
+function tick(){const l=st.end-Date.now();if(l<=0)return finish('Waktu habis');const m=Math.floor(l/60000),s=Math.floor(l%60000/1000);
+ $('#timer').textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');$('#timer').classList.toggle('low',l<300000)}
+function draw(){const n=st.order.length,qi=st.order[st.cur],q=cfg.bank[qi];
+ $('#qn').textContent=`Soal ${st.cur+1} dari ${n}`;$('#qt').textContent=q.q;$('#prog').textContent=Object.keys(st.ans).length+' / '+n+' terjawab';
+ const o=$('#ops');o.innerHTML='';st.perm[qi].forEach((oi,k)=>{const b=el('button','opt'+(st.ans[qi]===oi?' on':''));b.append(el('b','',String.fromCharCode(65+k)),el('span','',q.o[oi]));
+  b.onclick=()=>{st.ans[qi]=oi;save();draw()};o.append(b)});
+ const nv=$('#nav');nv.innerHTML='';st.order.forEach((x,i)=>{const b=el('button',(st.ans[x]!=null?'a ':'')+(st.rg[x]?'rg ':'')+(i===st.cur?'c':''),i+1);b.onclick=()=>{st.cur=i;save();draw()};nv.append(b)});
+ $('#pv').disabled=st.cur===0;$('#nx').disabled=st.cur===n-1}
+$('#pv').onclick=()=>{st.cur--;save();draw()};$('#nx').onclick=()=>{st.cur++;save();draw()};
+$('#rg').onclick=()=>{const x=st.order[st.cur];st.rg[x]=!st.rg[x];save();draw()};
+$('#fin').onclick=()=>{const k=st.order.length-Object.keys(st.ans).length,r=Object.values(st.rg).filter(Boolean).length;
+ if(confirm((k?k+' soal belum dijawab. ':'')+(r?r+' soal masih ragu-ragu. ':'')+'Kirim jawaban sekarang?'))finish('Selesai')};
+
+function finish(why){if(!st||st.done)return;clearInterval(tm);st.done=true;let b=0;cfg.bank.forEach((q,i)=>{if(st.ans[i]===q.a)b++});
+ const n=cfg.bank.length,res=LS.g('res',[]);res.push({nama:st.nama,nis:st.nis,kelas:st.kls,benar:b,total:n,skor:Math.round(b/n*100),pelanggaran:st.viol.length,alasan:why,waktu:new Date().toLocaleString('id-ID')});
+ LS.s('res',res);save();$('#ov').classList.remove('show');document.exitFullscreen?.().catch(()=>{});show('done');$('#dm').textContent=`Status: ${why}. Terjawab ${Object.keys(st.ans).length} dari ${n} soal.`;localStorage.removeItem('ses')}
+
+/* ===== ANTI MENCONTEK ===== */
+function viol(r){if(!st||st.done||lock||$('#exam').classList.contains('hide'))return;const t=Date.now();if(t-lastV<1500)return;lastV=t;
+ st.viol.push({t,r});save();const sisa=cfg.maxV-st.viol.length;
+ if(sisa<=0){lock=true;return finish('Dikunci otomatis (pelanggaran: '+r+')')}
+ $('#ovt').textContent='⚠️ Pelanggaran terdeteksi';$('#ovm').textContent=r+'. Pelanggaran '+st.viol.length+' dari '+cfg.maxV+'. Sisa kesempatan: '+sisa+'.';$('#ov').classList.add('show')}
+$('#ovb').onclick=()=>{$('#ov').classList.remove('show');try{document.documentElement.requestFullscreen?.()}catch{}};
+document.addEventListener('visibilitychange',()=>{document.body.classList.toggle('hid',document.hidden);if(document.hidden)viol('Berpindah aplikasi/tab')});
+addEventListener('blur',()=>{document.body.classList.add('hid');viol('Jendela kehilangan fokus')});
+addEventListener('focus',()=>document.body.classList.remove('hid'));
+document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement&&document.fullscreenEnabled)viol('Keluar dari layar penuh')});
+addEventListener('resize',()=>{if(st&&st.w0&&innerWidth<st.w0*0.75&&!document.fullscreenElement&&matchMedia('(display-mode: browser)').matches===false)viol('Mode layar terbagi/jendela diubah')});
+['contextmenu','copy','cut','paste','dragstart'].forEach(e=>document.addEventListener(e,x=>{if(!x.target.closest('input,textarea'))x.preventDefault()}));
+document.addEventListener('keydown',e=>{if(!st||st.done)return;const k=e.key.toLowerCase();
+ if(k==='printscreen'){navigator.clipboard?.writeText('Dilarang menangkap layar');viol('Mencoba tangkapan layar')}
+ if(k==='f12'||(e.ctrlKey&&['c','v','x','u','s','p','a'].includes(k))||(e.ctrlKey&&e.shiftKey&&['i','j','c'].includes(k))||(e.metaKey&&e.shiftKey&&['3','4','5'].includes(k))||(e.altKey&&k==='tab')){e.preventDefault();viol('Pintasan terlarang ('+e.key+')')}});
+addEventListener('beforeunload',e=>{if(st&&!st.done){e.preventDefault();e.returnValue=''}});
+addEventListener('pagehide',()=>{if(st&&!st.done)viol('Halaman ditutup/disembunyikan')});
+
+/* ===== PANEL GURU ===== */
+function openAdmin(){show('adm');$('#a1').value=cfg.token;$('#a2').value=cfg.min;$('#a3').value=cfg.maxV;$('#a5').value=JSON.stringify(cfg.bank,null,1);renderRes()}
+function renderRes(){const t=$('#at');t.innerHTML='<tr><th>Nama</th><th>NIS</th><th>Kelas</th><th>Skor</th><th>Benar</th><th>Pel.</th><th>Status</th></tr>';
+ LS.g('res',[]).forEach(r=>{const tr=t.insertRow();[r.nama,r.nis,r.kelas,r.skor,r.benar+'/'+r.total,r.pelanggaran,r.alasan].forEach(v=>tr.insertCell().textContent=v)})}
+$('#asv').onclick=()=>{try{const b=JSON.parse($('#a5').value);if(!Array.isArray(b)||!b.every(q=>q.q&&Array.isArray(q.o)&&q.o.length>1&&Number.isInteger(q.a)&&q.o[q.a]!=null))throw 0;
+ cfg={token:$('#a1').value.trim()||'TOKEN',min:+$('#a2').value||60,maxV:+$('#a3').value||3,pin:$('#a4').value.trim()||cfg.pin,bank:b};LS.s('cfg',cfg);alert('Tersimpan.')}catch{alert('Format bank soal tidak valid.')}};
+$('#acsv').onclick=()=>{const r=LS.g('res',[]),q=v=>'"'+String(v).replace(/"/g,'""')+'"',h=['nama','nis','kelas','benar','total','skor','pelanggaran','alasan','waktu'];
+ const c=[h.join(',')].concat(r.map(x=>h.map(k=>q(x[k])).join(','))).join('\n'),a=el('a');a.href=URL.createObjectURL(new Blob([c],{type:'text/csv'}));a.download='hasil-ujian.csv';a.click()};
+$('#aclr').onclick=()=>{if(confirm('Hapus semua hasil di perangkat ini?')){LS.s('res',[]);renderRes()}};
+if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});
+if(st&&!st.done){$('#nm').value=st.nama;$('#ni').value=st.nis;$('#kl').value=st.kls;$('#err').textContent='Ujian sebelumnya belum selesai — masukkan token untuk melanjutkan.'}
+</script></body></html>
